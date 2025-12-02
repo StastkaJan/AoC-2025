@@ -1,5 +1,5 @@
-import { trackTime } from './util/trackTime'
-import { logResultWithTime } from './util/log'
+import { trackTime } from './src/util/trackTime'
+import { logResultWithTime } from './src/util/log'
 
 if (process.argv[2]) {
   const day = parseInt(process.argv[2])
@@ -12,8 +12,8 @@ if (process.argv[2]) {
   }
 
   const date = String(day).padStart(2, '0')
-  const input = await import(`./day${date}/input.txt`)
-  const dayFile = await import(`./day${date}/index.ts`)
+  const input = await import(`./src/days/day${date}/input.txt`)
+  const dayFile = await import(`./src/days/day${date}/index.ts`)
 
   const [part1, part2] = await Promise.all([
     trackTime(dayFile.part1, input.default),
