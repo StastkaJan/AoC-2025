@@ -1,7 +1,3 @@
-import input from './input.txt'
-import { trackTime } from '../util/trackTime'
-import { logResultWithTime } from '../util/log'
-
 // Part 1
 const part1 = async (input: string) => {
   const data = input.split('\n').filter(Boolean)
@@ -51,7 +47,7 @@ const part2 = async (input: string) => {
       if (next < min && next + max !== min && pos !== min) pass++
     } else {
       const next = pos + rotation
-      if (next > 99 && next - max !== min && pos !== min) pass++
+      if (next >= max && next - max !== min && pos !== min) pass++
     }
 
     if (pos === min) pass++
@@ -61,11 +57,7 @@ const part2 = async (input: string) => {
   return pass
 }
 
-export default async () => {
-  trackTime(async () => part1(input)).then(({ result, time }) =>
-    logResultWithTime('Part 1:', result, time)
-  )
-  trackTime(async () => part2(input)).then(({ result, time }) =>
-    logResultWithTime('Part 2:', result, time)
-  )
+export {
+  part1,
+  part2,
 }

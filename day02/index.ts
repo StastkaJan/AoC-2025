@@ -1,7 +1,3 @@
-import input from './input.txt'
-import { trackTime } from '../util/trackTime'
-import { logResultWithTime } from '../util/log'
-
 // Part 1
 const part1 = async (input: string) => {
   const data = input.split(',').filter(Boolean)
@@ -57,11 +53,7 @@ const part2 = async (input: string) => {
   return res
 }
 
-export default async () => {
-  trackTime(async () => part1(input)).then(({ result, time }) =>
-    logResultWithTime('Part 1:', result, time)
-  )
-  trackTime(async () => part2(input)).then(({ result, time }) =>
-    logResultWithTime('Part 2:', result, time)
-  )
+export {
+  part1,
+  part2,
 }
