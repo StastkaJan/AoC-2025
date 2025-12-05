@@ -27,6 +27,7 @@
     "noPropertyAccessFromIndexSignature": false,
     "paths": {
       "@util/*": ["./src/util/*"],
+      "@days/*": ["./src/days/*"],
     }
   }
 }
